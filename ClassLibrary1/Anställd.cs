@@ -12,6 +12,7 @@ namespace BusinessLayer
         public string roll { get; set; }
         public List<Bokning> bokning { get; set; }
 
+
         public Anställd(int anstNr, string namn, string lösenord, string roll, List<Bokning> bokning)
         {
             this.anstNr = anstNr;
@@ -21,9 +22,15 @@ namespace BusinessLayer
             this.bokning = bokning;
         }
 
-        public Bokning skapaBokning(int MedlemsNr,List<Bok> böcker)
+        public Bokning skapaBokning(int MedlemsNr,List<Bok> böcker,int anstNr)
         {
-            
+            //hitta rätt medlem i repositorin
+            DateTime startDate = new DateTime;
+            DateTIme endDate = new DateTime;
+            string BokningsNr = 
+
+
+
         }
     }
 }

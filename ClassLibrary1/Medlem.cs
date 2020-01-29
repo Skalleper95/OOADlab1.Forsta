@@ -23,7 +23,7 @@ namespace BusinessLayer
 
         public Medlem GetMed(int MedNr)
         {
-            foreach(Medlem)
+            foreach(Medlem in)
         }
     }
 }
