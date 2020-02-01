@@ -9,6 +9,8 @@ namespace BusinessLayer
         public List<Bok> Böcker = new List<Bok>();
         public BokRepository(List<Bok> Böcker)
         {
+            // Lista med böcker 
+
             Böcker.Add(new Bok(1234, "sagan om ringen"));
             Böcker.Add(new Bok(1235, "Bibeln"));
             Böcker.Add(new Bok(1236, "Harry Potter"));

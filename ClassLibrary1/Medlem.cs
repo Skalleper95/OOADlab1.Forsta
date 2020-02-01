@@ -7,6 +7,7 @@ namespace BusinessLayer
 {
     public class Medlem
     {
+        //Klassen medlem 
         public int MedlemsNr { get; set; }
         public string namn { get; set; }
         public int teleNr { get; set; }
@@ -15,7 +16,7 @@ namespace BusinessLayer
 
         public Medlem(int medlemsNr, string namn, int teleNr, string eMail, List<Bokning> bokning)
         {
-            MedlemsNr = medlemsNr;
+            this.MedlemsNr = medlemsNr;
             this.namn = namn;
             this.teleNr = teleNr;
             this.eMail = eMail;

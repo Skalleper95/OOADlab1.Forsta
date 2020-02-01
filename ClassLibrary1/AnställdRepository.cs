@@ -8,17 +8,14 @@ namespace BusinessLayer
     {
 
 
-
-
-
-
         public List<Anställd> anställda = new List<Anställd>();
         
         public List<Bokning> B = new List<Bokning>();
 
         public AnställdRepository(List<Anställd> anställda, List<Bokning> b)
         {
-            this.anställda = anställda;
+            // en lista med anställda
+            //this.anställda = anställda;
             B = b;
             anställda.Add(new Anställd(1, "Janne", "LoL", "Chef", B));
             anställda.Add(new Anställd(2, "Amy", "LoL", "receptionist", B));

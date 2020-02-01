@@ -8,6 +8,7 @@ namespace BusinessLayer
     {
         public MedlemRepository(List<Medlem> Medlemmar, List<Bokning> b)
         {
+            //En lista med Medlemmar
             Medlemmar.Add(new Medlem(1, "Daniel", 070987654, "Daniel@hotmail.com", b));
             Medlemmar.Add(new Medlem(1, "Erik", 070987123, "Erikl@hotmail.com", b));
             Medlemmar.Add(new Medlem(1, "Louise", 070987345, "Louise@hotmail.com", b));

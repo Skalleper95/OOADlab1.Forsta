@@ -6,6 +6,7 @@ namespace BusinessLayer
 {
     public class Faktura
     {
+        //klassen faktura. StartDate  och EndDate håller koll på när fakturan startar och slutar
         public string FakturaId { get; set; }
         public int Pris { get; set; }
         public  Bokning bokning { get; set; }

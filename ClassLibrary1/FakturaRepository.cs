@@ -6,9 +6,12 @@ namespace BusinessLayer
 {
     public class FakturaRepository
     {
-        public FakturaRepository(List<Faktura> Fakturor, List<Bok> Böcker)
+        public List<Bokning> B = new List<Bokning>();
+        public FakturaRepository(List<Faktura> Fakturor, List<Bok> Böcker,List<Bokning> b)
         {
-            Fakturor.add(new Faktura("S12", 150, bokning, Böcker,new DateTime (20,12,11),new DateTime(20,12,18)));
+            b = B;
+
+            Fakturor.Add(new Faktura("S12", 150, B, Böcker,new DateTime (20,12,11),new DateTime(20,12,18)));
         }
     }
 }
