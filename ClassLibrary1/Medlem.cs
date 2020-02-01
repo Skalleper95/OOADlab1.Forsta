@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace BusinessLayer
 {
-    class Medlem
+    public class Medlem
     {
         public int MedlemsNr { get; set; }
         public string namn { get; set; }
@@ -21,9 +22,6 @@ namespace BusinessLayer
             this.bokning = bokning;
         }
 
-        public Medlem GetMed(int MedNr)
-        {
-            foreach(Medlem in)
-        }
+       
     }
 }

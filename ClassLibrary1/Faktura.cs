@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class Faktura
+    public class Faktura
     {
         public string FakturaId { get; set; }
         public int Pris { get; set; }
@@ -19,8 +19,10 @@ namespace BusinessLayer
             Pris = pris;
             this.bokning = bokning;
             this.böcker = böcker;
-            this.startDate = startDate;
-            this.endDate = endDate;
+            this.endDate = startDate.AddDays(7);
+            this.startDate = DateTime.Now;
+            //this.endDate = endDate;
+
         }
     }
 }

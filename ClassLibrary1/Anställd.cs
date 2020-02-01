@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DataLayer;
+
 
 namespace BusinessLayer
 {
@@ -22,15 +22,16 @@ namespace BusinessLayer
             this.roll = roll;
             this.bokning = bokning;
         }
-
-        public Bokning skapaBokning(int MedlemsNr,List<Bok> böcker,int anstNr)
+        //Medlem medlem, Anställd anställd, string bokningsNr, DateTime startDate, DateTime endDate, List<Bok> böcker
+        public Bokning skapaBokning(int MedlemsNr, List<Bok> böcker, int anstNr)
         {
             //hitta rätt medlem i repositorin
-            DateTime startDate = new DateTime;
-            DateTIme endDate = new DateTime;
-            string BokningsNr = 
+            DateTime DS = DateTime.Now;
+            DateTime D = DS.AddDays(7);
 
-
+            int BokningsNr = bokning.Count + 1;
+            Bokning B = new Bokning;
+            return B;
 
         }
     }
