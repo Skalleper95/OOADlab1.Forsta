@@ -9,12 +9,12 @@ namespace BusinessLayer
         //klassen faktura. StartDate  och EndDate håller koll på när fakturan startar och slutar
         public string FakturaId { get; set; }
         public int Pris { get; set; }
-        public  Bokning bokning { get; set; }
+        public List<Bokning> bokning { get; set; }
         public List<Bok> böcker { get; set; }
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
 
-        public Faktura(string fakturaId, int pris, Bokning bokning, List<Bok> böcker, DateTime startDate, DateTime endDate)
+        public Faktura(string fakturaId, int pris, List<Bokning> bokning, List<Bok> böcker, DateTime startDate, DateTime endDate)
         {
             FakturaId = fakturaId;
             Pris = pris;

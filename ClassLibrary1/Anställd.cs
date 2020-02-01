@@ -28,7 +28,7 @@ namespace BusinessLayer
             //hitta rätt medlem i repositorin
             DateTime DS = DateTime.Now;
             DateTime D = DS.AddDays(7);
-
+            
             int BokningsNr = bokning.Count + 1;
             Bokning B = new Bokning;
             return B;
