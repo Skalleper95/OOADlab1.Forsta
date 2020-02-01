@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DataLayer;
 
 namespace BusinessLayer
 {
-    class Anställd
+    public class Anställd
     {
         public int anstNr { get; set; }
         public string namn { get; set; }
