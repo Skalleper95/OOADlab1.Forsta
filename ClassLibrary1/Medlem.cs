@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class Medlem
+    public class Medlem
     {
         public int MedlemsNr { get; set; }
         public string namn { get; set; }
@@ -14,7 +14,7 @@ namespace BusinessLayer
 
         public Medlem(int medlemsNr, string namn, int teleNr, string eMail, List<Bokning> bokning)
         {
-            MedlemsNr = medlemsNr;
+            this.MedlemsNr = medlemsNr;
             this.namn = namn;
             this.teleNr = teleNr;
             this.eMail = eMail;

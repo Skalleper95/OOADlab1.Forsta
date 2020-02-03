@@ -6,6 +6,7 @@ namespace ClassLibrary2
 {
     public class DataManager
     {
+
         /*
         public static List<businessManager.Anställd> LoadSampleData()
         {
@@ -13,7 +14,7 @@ namespace ClassLibrary2
             output.Add(new Anställd() { anstNr = 1, namn = "Janne", lösenord = "LoL", roll = "Chef" });
 
             return output;
-
+ 
         }
         */
 

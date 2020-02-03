@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class Bok
+    public class Bok
     {
         public int ISBNnr { get; set; }
         public string titel { get; set; }

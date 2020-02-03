@@ -27,8 +27,8 @@ namespace BusinessLayer
         {
             //hitta rätt medlem i repositorin
             DateTime startDate = new DateTime;
-            DateTIme endDate = new DateTime;
-            string BokningsNr = 
+            DateTime endDate = new DateTime;
+            int BokningsNr = 
 
 
 
