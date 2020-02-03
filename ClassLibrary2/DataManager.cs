@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassLibrary2
+
+namespace DataLayer
 {
     public class DataManager
     {
@@ -17,6 +18,8 @@ namespace ClassLibrary2
  
         }
         */
+
+        
 
 
     }    
