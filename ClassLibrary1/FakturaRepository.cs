@@ -13,6 +13,7 @@ namespace BusinessLayer
             fakturor = new List<Faktura>();
         }
 
+        //Metod för att lägga till en faktura i listan 
         public void AddFaktura (Faktura F)
         {
             fakturor.Add(F);

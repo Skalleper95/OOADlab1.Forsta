@@ -27,6 +27,7 @@ namespace BusinessLayer
 
         }
 
+        //Metod för att hämta en bok
         public Bok Getbok(int ISBN)
         {
             Bok b = null;
@@ -43,6 +44,8 @@ namespace BusinessLayer
             return b;
         }  
         
+
+        //Metod för att hämta flera böcker
         public List<Bok> GetBöcker()
         {
             List<Bok> B = new List<Bok>();

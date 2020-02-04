@@ -14,7 +14,7 @@ namespace BusinessLayer
 
         public AnställdRepository()
         {
-            // en lista med anställda
+            // Fyller listan med anställda
 
             
             anställda.Add(new Anställd(1, "Janne", "LoL", "chef", B));
@@ -28,7 +28,8 @@ namespace BusinessLayer
             anställda.Add(new Anställd(9, "Bigdick", "LoL", "chef", B));
 
         }
-
+        
+        // Metod för att hämta en anställd
         public Anställd GetAnställd(int anstNr)
         {
             foreach(Anställd A in anställda)

@@ -21,6 +21,7 @@ namespace BusinessLayer
             Bokningar.Add(B);
         }
 
+        //Metod för att lägga in en bokning i Bokningslistan
         public void AddBokning(Bokning B)
         {
             Bokningar.Add(B);

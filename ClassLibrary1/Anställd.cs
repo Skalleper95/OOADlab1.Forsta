@@ -31,7 +31,7 @@ namespace BusinessLayer
 
 
 
-        //Medlem medlem, Anställd anställd, string bokningsNr, DateTime startDate, DateTime endDate, List<Bok> böcker
+        //EN metod som skapar en bokning 
         public Bokning skapaBokning(int MedlemsNr, List<Bok> böcker, int anstNr, BusinessManager bm)
         {
             Medlem M = bm.MedRepo.GetMedlem(MedlemsNr);

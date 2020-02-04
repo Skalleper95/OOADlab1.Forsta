@@ -47,6 +47,7 @@ namespace GUI
             bool OK = false;
             int ID = int.Parse(IDtext.Text);
 
+            //Loop för att se ifall inloggningen stämmer
             foreach (Anställd A in BusinessManager.AnstRepo.anställda)
             {
                 if (A.anstNr == ID)
@@ -64,6 +65,7 @@ namespace GUI
 
             }
 
+            //Loop för att logga in 
             if (OK == true)
             {
                 BusinessManager.inloggad = ID;

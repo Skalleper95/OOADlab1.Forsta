@@ -16,6 +16,7 @@ namespace GUI
         public BusinessManager BusinessManager { get; }
         public Start(BusinessManager businessManager)
         {
+            //Laddar in saker i listorna
             InitializeComponent();
             BusinessManager = businessManager;
             List<Bok> Boklista = businessManager.BokRepo.GetBöcker();
@@ -41,6 +42,7 @@ namespace GUI
 
         private void SkapaBokninKnapp_Click(object sender, EventArgs e)
         {
+            //Knapp för att skapa en bokning
             Anställd A = BusinessManager.AnstRepo.GetAnställd(BusinessManager.inloggad);
             int MNr = int.Parse(MedlemsIdBox.Text);
             List<Bok> B = new List<Bok>();
@@ -52,7 +54,8 @@ namespace GUI
             }
 
             Bokning Bokn = A.skapaBokning(MNr, B, BusinessManager.inloggad, BusinessManager);
-
+            
+            //En box för att se så informationen stämmer
             DialogResult Svar;
             Svar = MessageBox.Show($"Medlem: {Bokn.medlem.namn}\nAnställd: {Bokn.anställd.namn}", "stämmer detta?", MessageBoxButtons.YesNo);
             if (Svar == DialogResult.No)
@@ -70,7 +73,7 @@ namespace GUI
 
         private void AvslutaBokning_Click(object sender, EventArgs e)
         {
-            
+            //FUNKAR INTE JUST NU
             Bokning B = BusinessManager.BoknRepo.GetBokning(int.Parse(BokningsNrBox.Text));
             
             Faktura F = B.skapaFaktura(B.BokningsNr, BusinessManager);

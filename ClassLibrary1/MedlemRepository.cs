@@ -13,7 +13,7 @@ namespace BusinessLayer
             Medlemmar = new List<Medlem>();
             List<Bokning> b = new List<Bokning>();
 
-            //En lista med Medlemmar
+            //fyller listan med Medlemmar
             Medlemmar.Add(new Medlem(1, "Daniel", 070987654, "Daniel@hotmail.com", b));
             Medlemmar.Add(new Medlem(2, "Erik", 070987123, "Erikl@hotmail.com", b));
             Medlemmar.Add(new Medlem(3, "Louise", 070987345, "Louise@hotmail.com", b));
@@ -26,6 +26,8 @@ namespace BusinessLayer
 
         }
 
+
+        //Metod för att hämta en medlem
         public Medlem GetMedlem(int medNr)
         {
             Medlem M = null;

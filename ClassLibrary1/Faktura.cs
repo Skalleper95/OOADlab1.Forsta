@@ -22,7 +22,7 @@ namespace BusinessLayer
             this.böcker = böcker;
             this.endDate = DateTime.Today;
             this.startDate = bokning.startDate;
-            //this.endDate = endDate;
+            
 
         }
     }
