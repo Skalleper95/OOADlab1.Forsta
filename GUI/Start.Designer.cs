@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LisaboxBöcker = new System.Windows.Forms.ListBox();
+            this.ListboxBöcker = new System.Windows.Forms.ListBox();
             this.MedlemsIdBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,82 +36,95 @@
             this.AvslutaBokning = new System.Windows.Forms.Button();
             this.BokningsNrBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // LisaboxBöcker
+            // ListboxBöcker
             // 
-            this.LisaboxBöcker.FormattingEnabled = true;
-            this.LisaboxBöcker.Location = new System.Drawing.Point(92, 62);
-            this.LisaboxBöcker.Name = "LisaboxBöcker";
-            this.LisaboxBöcker.Size = new System.Drawing.Size(606, 485);
-            this.LisaboxBöcker.TabIndex = 0;
+            this.ListboxBöcker.FormattingEnabled = true;
+            this.ListboxBöcker.Location = new System.Drawing.Point(15, 25);
+            this.ListboxBöcker.Name = "ListboxBöcker";
+            this.ListboxBöcker.Size = new System.Drawing.Size(219, 277);
+            this.ListboxBöcker.TabIndex = 0;
             // 
             // MedlemsIdBox
             // 
-            this.MedlemsIdBox.Location = new System.Drawing.Point(92, 607);
+            this.MedlemsIdBox.Location = new System.Drawing.Point(15, 321);
             this.MedlemsIdBox.Name = "MedlemsIdBox";
-            this.MedlemsIdBox.Size = new System.Drawing.Size(206, 20);
+            this.MedlemsIdBox.Size = new System.Drawing.Size(219, 20);
             this.MedlemsIdBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(167, 575);
+            this.label1.Location = new System.Drawing.Point(12, 305);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Medlems Id";
+            this.label1.Text = "Medlems ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(347, 31);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(111, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Lisa med böcker";
+            this.label2.Text = "Skapa en ny bokning ";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // SkapaBokninKnapp
             // 
-            this.SkapaBokninKnapp.Location = new System.Drawing.Point(92, 677);
+            this.SkapaBokninKnapp.Location = new System.Drawing.Point(15, 347);
             this.SkapaBokninKnapp.Name = "SkapaBokninKnapp";
-            this.SkapaBokninKnapp.Size = new System.Drawing.Size(210, 36);
+            this.SkapaBokninKnapp.Size = new System.Drawing.Size(108, 24);
             this.SkapaBokninKnapp.TabIndex = 4;
             this.SkapaBokninKnapp.Text = "Skapa bokning";
-            this.SkapaBokninKnapp.UseVisualStyleBackColor = false;
+            this.SkapaBokninKnapp.UseVisualStyleBackColor = true;
+            this.SkapaBokninKnapp.Click += new System.EventHandler(this.SkapaBokninKnapp_Click);
             // 
             // AvslutaBokning
             // 
-            this.AvslutaBokning.Location = new System.Drawing.Point(501, 677);
+            this.AvslutaBokning.Location = new System.Drawing.Point(376, 64);
             this.AvslutaBokning.Name = "AvslutaBokning";
-            this.AvslutaBokning.Size = new System.Drawing.Size(177, 36);
+            this.AvslutaBokning.Size = new System.Drawing.Size(108, 24);
             this.AvslutaBokning.TabIndex = 5;
             this.AvslutaBokning.Text = "Avsluta";
             this.AvslutaBokning.UseVisualStyleBackColor = true;
+            this.AvslutaBokning.Click += new System.EventHandler(this.AvslutaBokning_Click);
             // 
             // BokningsNrBox
             // 
-            this.BokningsNrBox.Location = new System.Drawing.Point(501, 607);
+            this.BokningsNrBox.Location = new System.Drawing.Point(376, 38);
             this.BokningsNrBox.Name = "BokningsNrBox";
-            this.BokningsNrBox.Size = new System.Drawing.Size(177, 20);
+            this.BokningsNrBox.Size = new System.Drawing.Size(108, 20);
             this.BokningsNrBox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(544, 575);
+            this.label3.Location = new System.Drawing.Point(276, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Boknings nummer";
+            this.label3.Text = "Boknings nummer:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(276, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Avsluta en bokning";
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 756);
+            this.ClientSize = new System.Drawing.Size(504, 385);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BokningsNrBox);
             this.Controls.Add(this.AvslutaBokning);
@@ -119,9 +132,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MedlemsIdBox);
-            this.Controls.Add(this.LisaboxBöcker);
+            this.Controls.Add(this.ListboxBöcker);
             this.Name = "Start";
             this.Text = "Start";
+            this.Load += new System.EventHandler(this.Start_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,7 +143,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox LisaboxBöcker;
+        private System.Windows.Forms.ListBox ListboxBöcker;
         private System.Windows.Forms.TextBox MedlemsIdBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -137,5 +151,6 @@
         private System.Windows.Forms.Button AvslutaBokning;
         private System.Windows.Forms.TextBox BokningsNrBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

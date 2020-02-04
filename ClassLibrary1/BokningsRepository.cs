@@ -10,15 +10,15 @@ namespace BusinessLayer
 
         public List<Bokning> Bokningar { get; set; }
 
-        public BokningsRepository()
+        public BokningsRepository(Medlem M, Anställd A, Bok b)
         {
             Bokningar = new List<Bokning>();
 
-            //Bokningar.Add(new Bokning((Medlem)MedlemRepository[0], A, 1, new DateTime(2020 - 02 - 04), new DateTime(2020 - 02 - 11), Böcker));
-
-            //Bokningar.Add(new Bokning(M,A,1,new DateTime(2020 - 01 - 12), new DateTime(2020 - 01 - 19), Böcker));
+            List<Bok> L = new List<Bok>();
+            L.Add(b);
             
-            //Bokningar.Add(new Bokning() //new DateTime(2020 - 01 - 12), new DateTime(2020 - 01 - 19), Böcker));
+            Bokning B = new Bokning(M, A, 1, new DateTime(2020-01-20), new DateTime(2020-01-29), L);
+            Bokningar.Add(B);
         }
 
         public void AddBokning(Bokning B)

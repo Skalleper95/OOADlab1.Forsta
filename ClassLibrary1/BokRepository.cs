@@ -18,12 +18,12 @@ namespace BusinessLayer
             Böcker.Add(new Bok(1236, "Harry Potter"));
             Böcker.Add(new Bok(1237, "Hur du tränar din drake"));
             Böcker.Add(new Bok(1238, "The shining"));
-            Böcker.Add(new Bok(1239, "Porr för kvinnor"));
+            Böcker.Add(new Bok(1239, "How to get dates"));
             Böcker.Add(new Bok(1240, "How to get rich"));
             Böcker.Add(new Bok(1241, "How to get poor"));
             Böcker.Add(new Bok(1242, "Drugs are good for you"));
-            Böcker.Add(new Bok(1243, "How to get rid of you baby"));
-            Böcker.Add(new Bok(1244, "Repository for dummies"));
+            Böcker.Add(new Bok(1243, "C# for dummies"));
+            Böcker.Add(new Bok(1244, "Repositories for dummies"));
 
         }
 
@@ -41,7 +41,17 @@ namespace BusinessLayer
                 
             }
             return b;
-        }   
+        }  
+        
+        public List<Bok> GetBöcker()
+        {
+            List<Bok> B = new List<Bok>();
+            foreach (Bok b in Böcker)
+            {
+                B.Add(b);
+            }
+            return B;
+        }
 
     }
 }

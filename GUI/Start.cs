@@ -7,15 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLayer;
 
 namespace GUI
 {
     public partial class Start : Form
     {
-        public Start()
+        public BusinessManager BusinessManager { get; }
+        public Start(BusinessManager businessManager)
         {
             InitializeComponent();
+            BusinessManager = businessManager;
+            List<Bok> Boklista = businessManager.BokRepo.GetBöcker();
+            ListboxBöcker.DataSource = Boklista;
+            ListboxBöcker.SelectionMode = SelectionMode.MultiExtended;
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -25,6 +32,50 @@ namespace GUI
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Start_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SkapaBokninKnapp_Click(object sender, EventArgs e)
+        {
+            Anställd A = BusinessManager.AnstRepo.GetAnställd(BusinessManager.inloggad);
+            int MNr = int.Parse(MedlemsIdBox.Text);
+            List<Bok> B = new List<Bok>();
+
+            for (int i = 0; i < ListboxBöcker.Items.Count; i++)
+            {
+                Bok b = (Bok)ListboxBöcker.Items[i];
+                B.Add(b);
+            }
+
+            Bokning Bokn = A.skapaBokning(MNr, B, BusinessManager.inloggad, BusinessManager);
+
+            DialogResult Svar;
+            Svar = MessageBox.Show($"Medlem: {Bokn.medlem.namn}\nAnställd: {Bokn.anställd.namn}", "stämmer detta?", MessageBoxButtons.YesNo);
+            if (Svar == DialogResult.No)
+            {
+                Close();
+            }
+            else if (Svar == DialogResult.Yes)
+            {
+                BusinessManager.BoknRepo.AddBokning(Bokn);
+                MessageBox.Show($"{Bokn.BokningsNr}", "Ditt boknings nummer är");
+            }
+            
+            
+        }
+
+        private void AvslutaBokning_Click(object sender, EventArgs e)
+        {
+            
+            Bokning B = BusinessManager.BoknRepo.GetBokning(int.Parse(BokningsNrBox.Text));
+            
+            Faktura F = B.skapaFaktura(B.BokningsNr, BusinessManager);
+
+            MessageBox.Show($"Bokningen varade mellan {F.startDate} och {F.endDate}\nPriset blir {F.Pris}Kr","Bokningen har avbrutits");
         }
     }
 }

@@ -13,10 +13,17 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        public Form1()
+
+        internal BusinessManager BusinessManager { get; set; }
+        
+        
+
+        public Form1(BusinessManager businessManager)
         {
             InitializeComponent();
-            
+            BusinessManager = businessManager;
+
+
 
         }
 
@@ -37,6 +44,38 @@ namespace GUI
 
         private void LoggaInKnapp_Click(object sender, EventArgs e)
         {
+            bool OK = false;
+            int ID = int.Parse(IDtext.Text);
+
+            foreach (Anställd A in BusinessManager.AnstRepo.anställda)
+            {
+                if (A.anstNr == ID)
+                {
+
+                    if (A.lösenord.ToLower() == Lösenordtext.Text.ToString().ToLower())
+                    {
+                        OK = true;
+                        
+                        break;
+                    }
+
+                }
+
+
+            }
+
+            if (OK == true)
+            {
+                BusinessManager.inloggad = ID;
+                Start start = new Start(BusinessManager);
+                start.Show();
+                
+            }
+            else
+            {
+                MessageBox.Show("Misslyckad inlogging", "Fel");
+            }
+
 
         }
     }

@@ -29,13 +29,12 @@ namespace BusinessLayer
             return anstNr + " " + namn;
         }
 
-        public BusinessManager bm = new BusinessManager();
+
 
         //Medlem medlem, Anställd anställd, string bokningsNr, DateTime startDate, DateTime endDate, List<Bok> böcker
-        public Bokning skapaBokning(int MedlemsNr, List<Bok> böcker, int anstNr)
+        public Bokning skapaBokning(int MedlemsNr, List<Bok> böcker, int anstNr, BusinessManager bm)
         {
             Medlem M = bm.MedRepo.GetMedlem(MedlemsNr);
-            // HITTA INLOGGAD ANSTÄLLD
             Anställd A = bm.AnstRepo.GetAnställd(anstNr);
             DateTime start = DateTime.Now;
             DateTime end = start.AddDays(7);
@@ -43,7 +42,7 @@ namespace BusinessLayer
             int BokningsNr = bm.BoknRepo.Bokningar.Count + 1;
             Bokning B = new Bokning(M, A, BokningsNr, start, end, böcker);
 
-            bm.BoknRepo.AddBokning(B);
+            
             return B;
 
         }

@@ -37,7 +37,7 @@ namespace BusinessLayer
         }
 
 
-        public Faktura skapaFaktura(int bokningsNr)
+        public Faktura skapaFaktura(int bokningsNr, BusinessManager bm)
         {
             Bokning B = bm.BoknRepo.GetBokning(bokningsNr);
 
