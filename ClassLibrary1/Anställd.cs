@@ -31,6 +31,7 @@ namespace BusinessLayer
 
             int BokningsNr = bokning.Count + 1;
             Bokning B = new Bokning;
+            BokningsRepository.AddBokning(B);
             return B;
 
         }

@@ -11,7 +11,7 @@ namespace BusinessLayer
         {
             b = B;
 
-            Fakturor.Add(new Faktura("S12", 150, B, Böcker,new DateTime (20,12,11),new DateTime(20,12,18)));
+            Fakturor.Add(new Faktura(12, 150, B, Böcker,new DateTime (20,12,11),new DateTime(20,12,18)));
         }
     }
 }

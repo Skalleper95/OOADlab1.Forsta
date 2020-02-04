@@ -24,7 +24,10 @@ namespace BusinessLayer
             Böcker.Add(new Bok(1244, "Repository for dummies"));
 
         }
-            
+        Getbok()
+        {
+
+        }   
 
     }
 }

@@ -25,8 +25,8 @@ namespace BusinessLayer
             this.medlem = medlem;
             this.anställd = anställd;
             this.BokningsNr = bokningsNr;
-            this.startDate = startDate;
-            this.endDate = endDate;
+            this.startDate = DateTime.Today;
+            this.endDate = startDate.AddDays(7);
             this.böcker = böcker;
             
         }
