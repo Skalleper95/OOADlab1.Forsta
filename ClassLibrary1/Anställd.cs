@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
+
 namespace BusinessLayer
 {
     public class Anställd
@@ -22,16 +23,27 @@ namespace BusinessLayer
             this.roll = roll;
             this.bokning = bokning;
         }
+
+        public override string ToString()
+        {
+            return anstNr + " " + namn;
+        }
+
+        public BusinessManager bm = new BusinessManager();
+
         //Medlem medlem, Anställd anställd, string bokningsNr, DateTime startDate, DateTime endDate, List<Bok> böcker
         public Bokning skapaBokning(int MedlemsNr, List<Bok> böcker, int anstNr)
         {
-            //hitta rätt medlem i repositorin
-            DateTime DS = DateTime.Now;
-            DateTime D = DS.AddDays(7);
+            Medlem M = bm.MedRepo.GetMedlem(MedlemsNr);
+            // HITTA INLOGGAD ANSTÄLLD
+            Anställd A = bm.AnstRepo.GetAnställd(anstNr);
+            DateTime start = DateTime.Now;
+            DateTime end = start.AddDays(7);
 
-            int BokningsNr = bokning.Count + 1;
-            Bokning B = new Bokning;
-            BokningsRepository.AddBokning(B);
+            int BokningsNr = bm.BoknRepo.Bokningar.Count + 1;
+            Bokning B = new Bokning(M, A, BokningsNr, start, end, böcker);
+
+            bm.BoknRepo.AddBokning(B);
             return B;
 
         }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLayer;
 
 namespace GUI
 {
@@ -15,6 +16,8 @@ namespace GUI
         public Form1()
         {
             InitializeComponent();
+            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -28,6 +31,11 @@ namespace GUI
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoggaInKnapp_Click(object sender, EventArgs e)
         {
 
         }

@@ -15,5 +15,10 @@ namespace BusinessLayer
             ISBNnr = iSBNnr;
             this.titel = titel;
         }
+
+        public override string ToString()
+        {
+            return ISBNnr + " " + titel;
+        }
     }
 }

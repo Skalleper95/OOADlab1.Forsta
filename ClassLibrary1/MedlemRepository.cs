@@ -6,8 +6,13 @@ namespace BusinessLayer
 {
     public class MedlemRepository
     {
-        public MedlemRepository(List<Medlem> Medlemmar, List<Bokning> b)
+        public List<Medlem> Medlemmar { get; set; }
+
+        public MedlemRepository()
         {
+            Medlemmar = new List<Medlem>();
+            List<Bokning> b = new List<Bokning>();
+
             //En lista med Medlemmar
             Medlemmar.Add(new Medlem(1, "Daniel", 070987654, "Daniel@hotmail.com", b));
             Medlemmar.Add(new Medlem(1, "Erik", 070987123, "Erikl@hotmail.com", b));
@@ -20,6 +25,22 @@ namespace BusinessLayer
             Medlemmar.Add(new Medlem(1, "Ariel", 070912345, "Ariel@hotmail.com", b));
 
         }
+
+        public Medlem GetMedlem(int medNr)
+        {
+            Medlem M = null;
+
+            foreach (Medlem m in Medlemmar)
+            {
+                if (m.MedlemsNr == medNr)
+                {
+                    M = m;
+                }
+            }
+            return M;
+        }
+
+
     }
 }
 

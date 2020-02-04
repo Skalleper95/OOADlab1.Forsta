@@ -6,9 +6,11 @@ namespace BusinessLayer
 {
     public class BokRepository
     {
-        public List<Bok> Böcker = new List<Bok>();
-        public BokRepository(List<Bok> Böcker)
+        public List<Bok> Böcker { get; set; }
+        
+        public BokRepository()
         {
+            Böcker = new List<Bok>();
             // Lista med böcker 
 
             Böcker.Add(new Bok(1234, "sagan om ringen"));
@@ -24,9 +26,21 @@ namespace BusinessLayer
             Böcker.Add(new Bok(1244, "Repository for dummies"));
 
         }
-        Getbok()
-        {
 
+        public Bok Getbok(int ISBN)
+        {
+            Bok b = null;
+            foreach (Bok B in Böcker)
+            {
+                if (B.ISBNnr == ISBN)
+                {
+                    b = B ;
+                   
+                }
+                
+                
+            }
+            return b;
         }   
 
     }

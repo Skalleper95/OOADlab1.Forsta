@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace BusinessLayer
 {
     public class BokningsRepository
     {
 
-
         public List<Bokning> Bokningar { get; set; }
 
-        BokningsRepository()
+        public BokningsRepository()
         {
             Bokningar = new List<Bokning>();
 
@@ -26,7 +26,19 @@ namespace BusinessLayer
             Bokningar.Add(B);
         }
 
-        public void 
+        public Bokning GetBokning(int MedlemsNr)
+        {
+            
+            foreach (Bokning B in Bokningar)
+            {
+                if (B.medlem.MedlemsNr == MedlemsNr)
+                {
+                    return B;
+                }
+            }
+            return null;
+
+        }
     }
 }
 
