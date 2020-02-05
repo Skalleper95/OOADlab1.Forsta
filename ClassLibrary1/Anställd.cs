@@ -12,16 +12,16 @@ namespace BusinessLayer
         public string namn { get; set; }
         public string lösenord { get; set; }
         public string roll { get; set; }
-        public List<Bokning> bokning { get; set; }
+        public List<Bokning> bokningar { get; set; }
 
 
-        public Anställd(int anstNr, string namn, string lösenord, string roll, List<Bokning> bokning)
+        public Anställd(int anstNr, string namn, string lösenord, string roll, List<Bokning> bokningar)
         {
             this.anstNr = anstNr;
             this.namn = namn;
             this.lösenord = lösenord;
             this.roll = roll;
-            this.bokning = bokning;
+            this.bokningar = bokningar;
         }
 
         public override string ToString()
@@ -41,6 +41,9 @@ namespace BusinessLayer
 
             int BokningsNr = bm.BoknRepo.Bokningar.Count + 1;
             Bokning B = new Bokning(M, A, BokningsNr, start, end, böcker);
+            
+            A.bokningar.Add(B);
+            M.bokningar.Add(B);
 
             
             return B;
