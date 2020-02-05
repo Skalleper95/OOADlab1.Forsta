@@ -12,6 +12,7 @@ namespace BusinessLayer
         public string namn { get; set; }
         public string roll { get; set; }
         public List<Bokning> bokningar { get; set; }
+        public string lösenord { get; set; }
 
 
         public Anställd(int anstNr, string namn, string lösenord, string roll, List<Bokning> bokningar)

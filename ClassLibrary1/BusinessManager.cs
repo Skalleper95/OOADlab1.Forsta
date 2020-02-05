@@ -35,7 +35,7 @@ namespace BusinessLayer
             BokRepo.Böcker.Add(B);
            
         }
-
+        public int inloggad = 0;
         //Metod för inloggning
         public bool loggaIn(int anstNr, string lösen)
         {

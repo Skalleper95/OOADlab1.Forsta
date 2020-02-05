@@ -6,7 +6,8 @@ namespace BusinessLayer
 {
     public class MedlemRepository
     {
-
+        public List<Medlem> Medlemmar { get; set; }
+        
         public MedlemRepository()
         {
             Medlemmar = new List<Medlem>();
