@@ -74,11 +74,23 @@ namespace GUI
         private void AvslutaBokning_Click(object sender, EventArgs e)
         {
             //FUNKAR INTE JUST NU
-            Bokning B = BusinessManager.BoknRepo.GetBokning(int.Parse(BokningsNrBox.Text));
-            
-            Faktura F = B.skapaFaktura(B.BokningsNr, BusinessManager);
+            Bokning B = BusinessManager.BoknRepo.GetBokning(int.Parse(BokningsNrBox.Text), BusinessManager);
+            if (B == null)
+            {
+                MessageBox.Show("Den angivna bokningen existerar inte", "Error");
+            }
+            else
+            {
+                Faktura F = B.skapaFaktura(B.BokningsNr, BusinessManager);
 
-            MessageBox.Show($"Bokningen varade mellan {F.startDate} och {F.endDate}\nPriset blir {F.Pris}Kr","Bokningen har avbrutits");
+                MessageBox.Show($"Bokningen varade mellan {F.startDate} och {F.endDate}\nPriset blir {F.Pris}Kr", "Bokningen har avbrutits");
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Start: {BusinessManager.BoknRepo.Bokningar[0].startDate} \nEnd: {BusinessManager.BoknRepo.Bokningar[0].endDate}", "Kolla");
         }
     }
 }

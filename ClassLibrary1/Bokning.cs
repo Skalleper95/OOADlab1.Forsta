@@ -30,8 +30,8 @@ namespace BusinessLayer
             this.medlem = medlem;
             this.anställd = anställd;
             this.BokningsNr = bokningsNr;
-            this.startDate = DateTime.Today;
-            this.endDate = startDate.AddDays(7);
+            this.startDate = startDate;
+            this.endDate = endDate;
             this.böcker = böcker;
             
         }
@@ -40,7 +40,7 @@ namespace BusinessLayer
         //Metod för att skapa en faktura 
         public Faktura skapaFaktura(int bokningsNr, BusinessManager bm)
         {
-            Bokning B = bm.BoknRepo.GetBokning(bokningsNr);
+            Bokning B = bm.BoknRepo.GetBokning(bokningsNr, bm);
 
             int FNr = bm.FakRepo.fakturor.Count + 1;
             
@@ -59,6 +59,8 @@ namespace BusinessLayer
             Faktura F = new Faktura(FNr, pris, B, B.böcker, B.startDate, end);
 
             bm.FakRepo.AddFaktura(F);
+
+            bm.BoknRepo.DeleteBokning(B.BokningsNr, bm);
 
             return F;
 

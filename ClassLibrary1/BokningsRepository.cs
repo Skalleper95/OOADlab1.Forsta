@@ -17,7 +17,7 @@ namespace BusinessLayer
             List<Bok> L = new List<Bok>();
             L.Add(b);
             
-            Bokning B = new Bokning(M, A, 1, new DateTime(2020-01-20), new DateTime(2020-01-29), L);
+            Bokning B = new Bokning(M, A, 1, new DateTime(2019, 01, 20), new DateTime(2020, 01, 29), L);
             Bokningar.Add(B);
         }
 
@@ -27,18 +27,32 @@ namespace BusinessLayer
             Bokningar.Add(B);
         }
 
-        public Bokning GetBokning(int MedlemsNr)
+        //Metod för att hämta en bokning i listan
+        public Bokning GetBokning(int BokningsNr, BusinessManager bm)
         {
-            
-            foreach (Bokning B in Bokningar)
+            Bokning b = null;
+
+            foreach (Bokning B in bm.BoknRepo.Bokningar)
             {
-                if (B.medlem.MedlemsNr == MedlemsNr)
+                if (B.BokningsNr == BokningsNr)
                 {
-                    return B;
+                    b = B;
                 }
             }
-            return null;
 
+            return b;
+        }
+
+        //Metod för att ta bort en bokning ur listan 
+        public void DeleteBokning(int bokningsNr, BusinessManager bm)
+        {
+            for (int i = 0; i < bm.BoknRepo.Bokningar.Count; i++)
+            {
+                if (Bokningar[i].BokningsNr == bokningsNr)
+                {
+                    Bokningar.RemoveAt(i);
+                }
+            }
         }
     }
 }
