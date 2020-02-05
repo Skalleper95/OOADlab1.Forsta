@@ -46,8 +46,9 @@ namespace BusinessLayer
             
             DateTime end = DateTime.Today;
             int pris = 0;
-            int dagar = DateTime.Compare(end, B.endDate);
-            if (dagar ==0 ||dagar< 0)
+            int dagar = DateTime.Compare(B.endDate, end);
+
+            if (dagar == 0 || dagar < 0)
             {
                 
             }
