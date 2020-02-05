@@ -10,7 +10,6 @@ namespace BusinessLayer
     {
         public int anstNr { get; set; }
         public string namn { get; set; }
-        public string lösenord { get; set; }
         public string roll { get; set; }
         public List<Bokning> bokningar { get; set; }
 

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="BusinessLayer.Anställd">
+    <Position X="5.25" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAEAAAAAQAgAAIAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Anställd.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="bokningar" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BusinessLayer.AnställdRepository">
+    <Position X="5.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAACAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>AnställdRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="anställda" />
+      <Field Name="B" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BusinessLayer.Bok">
+    <Position X="11.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Bok.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BusinessLayer.Bokning">
+    <Position X="11" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAQAAAAEACAYAAAAAAAAAAAgAQAAAAAAAAA=</HashCode>
+      <FileName>Bokning.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="anställd" />
+      <Property Name="medlem" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="böcker" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BusinessLayer.BokningsRepository">
+    <Position X="11" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAgAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BokningsRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Bokningar" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BusinessLayer.BokRepository">
+    <Position X="19.25" Y="4" Width="2" />
+    <AssociationLine Name="Böcker" Type="BusinessLayer.Bok" ManuallyRouted="true">
+      <Path>
+        <Point X="19.25" Y="4.744" />
+        <Point X="18.875" Y="4.744" />
+        <Point X="18.875" Y="12.146" />
+        <Point X="15.052" Y="12.146" Type="JumpStart" />
+        <Point X="14.885" Y="12.146" Type="JumpEnd" />
+        <Point X="12.656" Y="12.146" />
+        <Point X="12.656" Y="12.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQABAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>BokRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Böcker" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BusinessLayer.BusinessManager">
+    <Position X="15.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAFAAAAAAACAAQgAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AnstRepo" />
+      <Property Name="BoknRepo" />
+      <Property Name="BokRepo" />
+      <Property Name="FakRepo" />
+      <Property Name="MedRepo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BusinessLayer.Faktura">
+    <Position X="14.25" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAAAAAQAAAAACCAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Faktura.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="bokning" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="böcker" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BusinessLayer.FakturaRepository">
+    <Position X="18.5" Y="13" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>FakturaRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="fakturor" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BusinessLayer.Medlem">
+    <Position X="15.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAEQAAAAQAAAAIAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Medlem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="bokningar" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BusinessLayer.MedlemRepository">
+    <Position X="15.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>MedlemRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

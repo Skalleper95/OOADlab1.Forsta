@@ -14,7 +14,6 @@ namespace BusinessLayer
         public BokRepository BokRepo { get; set; }
         public BokningsRepository BoknRepo { get; set; }
         public FakturaRepository FakRepo { get; set; }
-        public  int inloggad { get; set; }
 
 
         public BusinessManager()
