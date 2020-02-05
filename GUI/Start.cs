@@ -45,8 +45,9 @@ namespace GUI
             //Knapp för att skapa en bokning
             Anställd A = BusinessManager.AnstRepo.GetAnställd(BusinessManager.inloggad);
             int MNr = int.Parse(MedlemsIdBox.Text);
+            
+            //Skapar en lista med böckerna som är valda
             List<Bok> B = new List<Bok>();
-
             for (int i = 0; i < ListboxBöcker.Items.Count; i++)
             {
                 Bok b = (Bok)ListboxBöcker.Items[i];
