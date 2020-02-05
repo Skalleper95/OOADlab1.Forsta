@@ -17,7 +17,7 @@ namespace BusinessLayer
             List<Bok> L = new List<Bok>();
             L.Add(b);
             
-            Bokning B = new Bokning(M, A, 1, new DateTime(2019, 01, 20), new DateTime(2020, 01, 29), L);
+            Bokning B = new Bokning(M, A, 1, new DateTime(2020, 01, 03), new DateTime(2020, 01, 10), L);
             Bokningar.Add(B);
         }
 

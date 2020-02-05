@@ -36,7 +36,7 @@ namespace BusinessLayer
         {
             Medlem M = bm.MedRepo.GetMedlem(MedlemsNr);
             Anställd A = bm.AnstRepo.GetAnställd(anstNr);
-            DateTime start = DateTime.Now;
+            DateTime start = DateTime.Today;
             DateTime end = start.AddDays(7);
 
             int BokningsNr = bm.BoknRepo.Bokningar.Count + 1;

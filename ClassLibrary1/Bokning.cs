@@ -44,20 +44,18 @@ namespace BusinessLayer
 
             int FNr = bm.FakRepo.fakturor.Count + 1;
             
-            DateTime end = DateTime.Today;
-            int pris = 0;
-            int dagar = DateTime.Compare(B.endDate, end);
+            DateTime endDate = DateTime.Today;
+            double pris = 0;
+            
+            TimeSpan ts = endDate - B.endDate;
+            pris = ts.Days * 10;
 
-            if (dagar == 0 || dagar < 0)
+            if (pris <= 0)
             {
-                
-            }
-            else 
-            { 
-                pris = dagar / 24 * 10; 
+                pris = 0;
             }
 
-            Faktura F = new Faktura(FNr, pris, B, B.böcker, B.startDate, end);
+            Faktura F = new Faktura(FNr, pris, B, B.böcker, B.startDate, endDate);
 
             bm.FakRepo.AddFaktura(F);
 
