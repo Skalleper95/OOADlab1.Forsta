@@ -23,8 +23,6 @@ namespace GUI
             InitializeComponent();
             BusinessManager = businessManager;
 
-
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -47,23 +45,10 @@ namespace GUI
             bool OK = false;
             int ID = int.Parse(IDtext.Text);
 
-            //Loop för att se ifall inloggningen stämmer
-            foreach (Anställd A in BusinessManager.AnstRepo.anställda)
-            {
-                if (A.anstNr == ID)
-                {
-
-                    if (A.lösenord.ToLower() == Lösenordtext.Text.ToString().ToLower())
-                    {
-                        OK = true;
-                        
-                        break;
-                    }
-
-                }
+            //kalla på metod för inloggning
+            OK = BusinessManager.loggaIn(ID, Lösenordtext.Text.ToString().ToLower());
 
 
-            }
 
             //Loop för att logga in 
             if (OK == true)

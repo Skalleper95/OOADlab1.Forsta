@@ -37,16 +37,16 @@ namespace BusinessLayer
            
         }
 
-        //kanske onödigt, används inte
+        //Metod för inloggning
         public bool loggaIn(int anstNr, string lösen)
         {
-            int inloggad = 0;
+            
             bool OK = false;
             foreach (Anställd a in AnstRepo.anställda)
             {
                 if (a.anstNr == anstNr)
                 {
-                    if (lösen == a.lösenord)
+                    if (lösen == a.lösenord.ToLower())
                     {
                         OK = true;
                         inloggad = anstNr;
