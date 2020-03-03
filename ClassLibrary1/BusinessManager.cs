@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    public class BusinessManager
+    public class BusinessManager : IBusinessManager
     {
 
         public MedlemRepository MedRepo { get; set; }
@@ -14,9 +14,9 @@ namespace BusinessLayer
         public BokRepository BokRepo { get; set; }
         public BokningsRepository BoknRepo { get; set; }
         public FakturaRepository FakRepo { get; set; }
+        public List<Bok> Böcker { get; set; }
 
-
-        public BusinessManager()
+        private BusinessManager()
         {
             //Extra data som skapas för att skapa en initciell bokning 
             Medlem M = new Medlem(10, "Calle", 0708555789, "calle@hotmail.com", new List<Bokning>());
@@ -33,33 +33,37 @@ namespace BusinessLayer
             MedRepo.Medlemmar.Add(M);
             AnstRepo.anställda.Add(A);
             BokRepo.Böcker.Add(B);
-           
+
         }
-        public int inloggad = 0;
-        //Metod för inloggning
-        public bool loggaIn(int anstNr, string lösen)
+        //public List<Bok> GetBöcker()
+        //{
+        //    List<Bok> B = new List<Bok>();
+        //    foreach (Bok b in Böcker INTE ÄR BOKADE)
+        //    {
+        //        B.Add(b);
+        //    }
+        //    return B;
+        //}
+        public Anställd GetAnställd(int anstNr)
         {
-            
-            bool OK = false;
-            foreach (Anställd a in AnstRepo.anställda)
+            foreach (Anställd A in AnstRepo.anställda)
             {
-                if (a.anstNr == anstNr)
+                if (A.anstNr == anstNr)
                 {
-                    if (lösen == a.lösenord.ToLower())
-                    {
-                        OK = true;
-                        inloggad = anstNr;
-                    }
+                    return A;
                 }
-               
             }
-            
-            return OK;
+            return null;
+        }
 
+        public class IBusinessManager : BusinessManager
+        {
+            public IBusinessManager()
+            {
+            }
         }
 
 
-
-
+        //Metod för inloggning
     }
 }

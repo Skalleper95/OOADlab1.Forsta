@@ -46,14 +46,14 @@ namespace GUI
             int ID = int.Parse(IDtext.Text);
 
             //kalla på metod för inloggning
-            OK = BusinessManager.loggaIn(ID, Lösenordtext.Text.ToString().ToLower());
+            OK = BusinessManager.AnstRepo.loggaIn(ID, Lösenordtext.Text.ToString().ToLower());
 
 
 
             //Loop för att logga in 
             if (OK == true)
             {
-                BusinessManager.inloggad = ID;
+                BusinessManager.AnstRepo.inloggad = ID;
                 Start start = new Start(BusinessManager);
                 start.Show();
                 

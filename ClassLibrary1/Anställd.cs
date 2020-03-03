@@ -8,6 +8,7 @@ namespace BusinessLayer
 {
     public class Anställd
     {
+        public AnställdRepository AnstRepo { get; set; }
         public int anstNr { get; set; }
         public string namn { get; set; }
         public string roll { get; set; }
@@ -35,7 +36,7 @@ namespace BusinessLayer
         public Bokning skapaBokning(int MedlemsNr, List<Bok> böcker, int anstNr, BusinessManager bm)
         {
             Medlem M = bm.MedRepo.GetMedlem(MedlemsNr);
-            Anställd A = bm.AnstRepo.GetAnställd(anstNr);
+            Anställd A = bm.GetAnställd(anstNr);
             DateTime start = DateTime.Today;
             DateTime end = start.AddDays(7);
 
@@ -49,5 +50,11 @@ namespace BusinessLayer
             return B;
 
         }
+
+        
+
+
+
+
     }
 }

@@ -7,7 +7,7 @@ namespace BusinessLayer
     public class AnställdRepository
     {
 
-
+        public AnställdRepository AnstRepo { get; set; }
         public List<Anställd> anställda = new List<Anställd>();
         
         public List<Bokning> B = new List<Bokning>();
@@ -30,21 +30,31 @@ namespace BusinessLayer
         }
         
         // Metod för att hämta en anställd
-        public Anställd GetAnställd(int anstNr)
+        
+        public int inloggad = 0;
+        //Metod för inloggning
+        public bool loggaIn(int anstNr, string lösen)
         {
-            foreach(Anställd A in anställda)
+
+            bool OK = false;
+            foreach (Anställd a in anställda)
             {
-                if (A.anstNr == anstNr)
+                if (a.anstNr == anstNr)
                 {
-                    return A;
+                    if (lösen == a.lösenord.ToLower())
+                    {
+                        OK = true;
+                        inloggad = anstNr;
+                    }
                 }
+
             }
-            return null;
+
+            return OK;
+
         }
 
-        
 
 
-        
     }
 }

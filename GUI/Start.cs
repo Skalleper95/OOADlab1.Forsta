@@ -43,7 +43,7 @@ namespace GUI
         private void SkapaBokninKnapp_Click(object sender, EventArgs e)
         {
             //Knapp för att skapa en bokning
-            Anställd A = BusinessManager.AnstRepo.GetAnställd(BusinessManager.inloggad);
+            Anställd A = BusinessManager.GetAnställd(BusinessManager.AnstRepo.inloggad);
             int MNr = int.Parse(MedlemsIdBox.Text);
             
             //Skapar en lista med böckerna som är valda
@@ -54,7 +54,7 @@ namespace GUI
                 B.Add(b);
             }
 
-            Bokning Bokn = A.skapaBokning(MNr, B, BusinessManager.inloggad, BusinessManager);
+            Bokning Bokn = A.skapaBokning(MNr, B, BusinessManager.AnstRepo.inloggad, BusinessManager);
             
             //En box för att se så informationen stämmer
             DialogResult Svar;
