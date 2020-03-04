@@ -8,7 +8,7 @@ namespace BusinessLayer
 {
     public class Anställd
     {
-        public AnställdRepository AnstRepo { get; set; }
+        internal AnställdRepository AnstRepo { get; set; }
         public int anstNr { get; set; }
         public string namn { get; set; }
         public string roll { get; set; }

@@ -37,6 +37,9 @@
             this.BokningsNrBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.BokadeBöckerlista = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // ListboxBöcker
@@ -44,8 +47,10 @@
             this.ListboxBöcker.FormattingEnabled = true;
             this.ListboxBöcker.Location = new System.Drawing.Point(15, 25);
             this.ListboxBöcker.Name = "ListboxBöcker";
+            this.ListboxBöcker.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.ListboxBöcker.Size = new System.Drawing.Size(219, 277);
             this.ListboxBöcker.TabIndex = 0;
+            this.ListboxBöcker.SelectedIndexChanged += new System.EventHandler(this.ListboxBöcker_SelectedIndexChanged);
             // 
             // MedlemsIdBox
             // 
@@ -119,11 +124,40 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Avsluta en bokning";
             // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(279, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(223, 266);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "label5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 382);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Bokade böcker";
+            // 
+            // BokadeBöckerlista
+            // 
+            this.BokadeBöckerlista.FormattingEnabled = true;
+            this.BokadeBöckerlista.Location = new System.Drawing.Point(15, 398);
+            this.BokadeBöckerlista.Name = "BokadeBöckerlista";
+            this.BokadeBöckerlista.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.BokadeBöckerlista.Size = new System.Drawing.Size(219, 277);
+            this.BokadeBöckerlista.TabIndex = 12;
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 385);
+            this.ClientSize = new System.Drawing.Size(662, 752);
+            this.Controls.Add(this.BokadeBöckerlista);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BokningsNrBox);
@@ -152,5 +186,8 @@
         private System.Windows.Forms.TextBox BokningsNrBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox BokadeBöckerlista;
     }
 }

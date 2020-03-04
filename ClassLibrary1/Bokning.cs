@@ -37,33 +37,6 @@ namespace BusinessLayer
         }
 
 
-        //Metod för att skapa en faktura 
-        public Faktura skapaFaktura(int bokningsNr, BusinessManager bm)
-        {
-            Bokning B = bm.BoknRepo.GetBokning(bokningsNr, bm);
-
-            int FNr = bm.FakRepo.fakturor.Count + 1;
-            
-            DateTime endDate = DateTime.Today;
-            double pris = 0;
-            
-            TimeSpan ts = endDate - B.endDate;
-            pris = ts.Days * 10;
-
-            if (pris <= 0)
-            {
-                pris = 0;
-            }
-
-            Faktura F = new Faktura(FNr, pris, B, B.böcker, B.startDate, endDate);
-
-            bm.FakRepo.AddFaktura(F);
-
-            bm.BoknRepo.DeleteBokning(B.BokningsNr, bm);
-
-            return F;
-
-        }
 
         
 

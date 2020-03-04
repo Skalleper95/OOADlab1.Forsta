@@ -35,15 +35,7 @@ namespace BusinessLayer
             BokRepo.Böcker.Add(B);
 
         }
-        //public List<Bok> GetBöcker()
-        //{
-        //    List<Bok> B = new List<Bok>();
-        //    foreach (Bok b in Böcker INTE ÄR BOKADE)
-        //    {
-        //        B.Add(b);
-        //    }
-        //    return B;
-        //}
+       
         public Anställd GetAnställd(int anstNr)
         {
             foreach (Anställd A in AnstRepo.anställda)
@@ -62,6 +54,33 @@ namespace BusinessLayer
             {
             }
         }
+        public Faktura skapaFaktura(int bokningsNr, BusinessManager bm)
+        {
+            Bokning B = BoknRepo.GetBokning(bokningsNr);
+
+            int FNr = bm.FakRepo.fakturor.Count + 1;
+
+            DateTime endDate = DateTime.Today;
+            double pris = 0;
+
+            TimeSpan ts = endDate - B.endDate;
+            pris = ts.Days * 10;
+
+            if (pris <= 0)
+            {
+                pris = 0;
+            }
+
+            Faktura F = new Faktura(FNr, pris, B, B.böcker, B.startDate, endDate);
+
+            bm.FakRepo.AddFaktura(F);
+
+            BoknRepo.DeleteBokning(B.BokningsNr);
+
+            return F;
+
+        }
+
 
 
         //Metod för inloggning

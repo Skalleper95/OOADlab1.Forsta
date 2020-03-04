@@ -52,7 +52,9 @@ namespace GUI
             {
                 Bok b = (Bok)ListboxBöcker.Items[i];
                 B.Add(b);
+               
             }
+            
 
             Bokning Bokn = A.skapaBokning(MNr, B, BusinessManager.AnstRepo.inloggad, BusinessManager);
             
@@ -67,22 +69,42 @@ namespace GUI
             {
                 BusinessManager.BoknRepo.AddBokning(Bokn);
                 MessageBox.Show($"{Bokn.BokningsNr}", "Ditt boknings nummer är");
+                //Bokadeböcker.Items.Add(A.bokningar);
+
+                //ListboxBöcker.Items.Remove(ListboxBöcker.SelectedItem);
+
+                label5.Text = "";
+                foreach (object b in ListboxBöcker.SelectedItems)
+                {
+                    label5.Text += (label5.Text == "" ? "" : ",") + b.ToString();
+
+                }
+
+                
+                foreach (object b in ListboxBöcker.SelectedItems)
+                {
+                    BokadeBöckerlista.Text += (label5.Text == "" ? "" : ",") + b.ToString();
+
+                }
+
             }
             
             
+
         }
 
         private void AvslutaBokning_Click(object sender, EventArgs e)
         {
             //Knapp för att avsluta en bokning och skapar då en fakruta
             Bokning B = null;
+            
             if (BokningsNrBox.Text == "")
             {
 
             }
             else
             {
-                B = BusinessManager.BoknRepo.GetBokning(int.Parse(BokningsNrBox.Text), BusinessManager);
+                B = BusinessManager.BoknRepo.GetBokning(int.Parse(BokningsNrBox.Text));
             }
             
             if (B == null)
@@ -92,12 +114,17 @@ namespace GUI
             else
             {
                
-                Faktura F = B.skapaFaktura(B.BokningsNr, BusinessManager);
+                Faktura F = BusinessManager.skapaFaktura(B.BokningsNr, BusinessManager);
 
                 MessageBox.Show($"Bokningen varade mellan {F.startDate} och {F.endDate}\nPriset blir {F.Pris}Kr", "Bokningen har avbrutits");
+               
             }
 
         }
 
+        private void ListboxBöcker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,11 +28,11 @@ namespace BusinessLayer
         }
 
         //Metod för att hämta en bokning i listan
-        public Bokning GetBokning(int BokningsNr, BusinessManager bm)
+        public Bokning GetBokning(int BokningsNr)
         {
             Bokning b = null;
 
-            foreach (Bokning B in bm.BoknRepo.Bokningar)
+            foreach (Bokning B in Bokningar)
             {
                 if (B.BokningsNr == BokningsNr)
                 {
@@ -44,9 +44,9 @@ namespace BusinessLayer
         }
 
         //Metod för att ta bort en bokning ur listan 
-        public void DeleteBokning(int bokningsNr, BusinessManager bm)
+        public void DeleteBokning(int bokningsNr)
         {
-            for (int i = 0; i < bm.BoknRepo.Bokningar.Count; i++)
+            for (int i = 0; i < Bokningar.Count; i++)
             {
                 if (Bokningar[i].BokningsNr == bokningsNr)
                 {

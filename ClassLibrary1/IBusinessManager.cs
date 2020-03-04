@@ -2,7 +2,7 @@
 
 namespace BusinessLayer
 {
-    public interface IBusinessManager
+    internal interface IBusinessManager
     {
         AnställdRepository AnstRepo { get; set; }
         BokningsRepository BoknRepo { get; set; }
