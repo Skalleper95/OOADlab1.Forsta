@@ -15,6 +15,7 @@ namespace BusinessLayer
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
         public List<Bok> böcker { get; set; }
+       
 
         public override string ToString()
         {
@@ -35,6 +36,7 @@ namespace BusinessLayer
             this.böcker = böcker;
             
         }
+        
 
 
 

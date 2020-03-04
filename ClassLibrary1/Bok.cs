@@ -7,6 +7,7 @@ namespace BusinessLayer
 {
     public class Bok
     {
+        public Bokning bokning { get; set; }
         public int ISBNnr { get; set; }
         public string titel { get; set; }
 
@@ -15,6 +16,7 @@ namespace BusinessLayer
             ISBNnr = iSBNnr;
             this.titel = titel;
         }
+
 
         public override string ToString()
         {

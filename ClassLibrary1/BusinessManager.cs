@@ -48,12 +48,9 @@ namespace BusinessLayer
             return null;
         }
 
-        public class IBusinessManager : BusinessManager
-        {
-            public IBusinessManager()
-            {
-            }
-        }
+
+
+        
         public Faktura skapaFaktura(int bokningsNr, BusinessManager bm)
         {
             Bokning B = BoknRepo.GetBokning(bokningsNr);
@@ -79,6 +76,13 @@ namespace BusinessLayer
 
             return F;
 
+        }
+
+        public class IBusinessManager : BusinessManager
+        {
+            public IBusinessManager()
+            {
+            }
         }
 
 

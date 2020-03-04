@@ -8,7 +8,7 @@ namespace BusinessLayer
 {
     public class Anställd
     {
-        internal AnställdRepository AnstRepo { get; set; }
+        public AnställdRepository AnstRepo { get; set; }
         public int anstNr { get; set; }
         public string namn { get; set; }
         public string roll { get; set; }
@@ -45,6 +45,11 @@ namespace BusinessLayer
             
             A.bokningar.Add(B);
             M.bokningar.Add(B);
+
+            foreach(Bok bok in B.böcker)
+            {
+                bok.bokning = B;
+            }
 
             
             return B;

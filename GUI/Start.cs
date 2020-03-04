@@ -13,6 +13,24 @@ namespace GUI
 {
     public partial class Start : Form
     {
+        public void Uppdatera()
+        {
+            BokadeBöckerlista.Items.Clear();
+            ListboxBöcker.Items.Clear();
+
+            foreach(Bok b in BusinessManager.BokRepo.Böcker)
+            {
+                if (b.bokning == null)
+                {
+                    ListboxBöcker.Items.Add(b);
+                }
+                else
+                {
+                    BokadeBöckerlista.Items.Add(b);
+                }
+            }
+
+        }
         public BusinessManager BusinessManager { get; }
         public Start(BusinessManager businessManager)
         {
@@ -20,8 +38,11 @@ namespace GUI
             InitializeComponent();
             BusinessManager = businessManager;
             List<Bok> Boklista = businessManager.BokRepo.GetBöcker();
-            ListboxBöcker.DataSource = Boklista;
+            //ListboxBöcker.DataSource = Boklista;
+            Uppdatera();
             ListboxBöcker.SelectionMode = SelectionMode.MultiExtended;
+            
+            
         }
 
 
@@ -48,16 +69,24 @@ namespace GUI
             
             //Skapar en lista med böckerna som är valda
             List<Bok> B = new List<Bok>();
-            for (int i = 0; i < ListboxBöcker.Items.Count; i++)
+            foreach(Bok b in ListboxBöcker.SelectedItems)
             {
-                Bok b = (Bok)ListboxBöcker.Items[i];
                 B.Add(b);
-               
+
             }
-            
+
+            //for (int i = 0; i < ListboxBöcker.Items.Count; i++)
+            //{
+            //    Bok b = (Bok)ListboxBöcker.Items[i];
+            //    B.Add(b);
+
+            //}
+
 
             Bokning Bokn = A.skapaBokning(MNr, B, BusinessManager.AnstRepo.inloggad, BusinessManager);
             
+           
+
             //En box för att se så informationen stämmer
             DialogResult Svar;
             Svar = MessageBox.Show($"Medlem: {Bokn.medlem.namn}\nAnställd: {Bokn.anställd.namn}", "stämmer detta?", MessageBoxButtons.YesNo);
@@ -67,25 +96,28 @@ namespace GUI
             }
             else if (Svar == DialogResult.Yes)
             {
+
                 BusinessManager.BoknRepo.AddBokning(Bokn);
                 MessageBox.Show($"{Bokn.BokningsNr}", "Ditt boknings nummer är");
-                //Bokadeböcker.Items.Add(A.bokningar);
+                BokadeBöckerlista.Items.Add(B);
+                Uppdatera();
+                //BokadeBöckerlista.Items.Add(B);
 
                 //ListboxBöcker.Items.Remove(ListboxBöcker.SelectedItem);
 
-                label5.Text = "";
-                foreach (object b in ListboxBöcker.SelectedItems)
-                {
-                    label5.Text += (label5.Text == "" ? "" : ",") + b.ToString();
+                //label5.Text = "";
+                //foreach (object b in ListboxBöcker.SelectedItems)
+                //{
+                //    label5.Text += (label5.Text == "" ? "" : ",") + b.ToString();
 
-                }
+                //}
 
-                
-                foreach (object b in ListboxBöcker.SelectedItems)
-                {
-                    BokadeBöckerlista.Text += (label5.Text == "" ? "" : ",") + b.ToString();
 
-                }
+                //foreach (object b in ListboxBöcker.SelectedItems)
+                //{
+                //    BokadeBöckerlista.Text += (label5.Text == "" ? "" : ",") + b.ToString();
+
+                //}
 
             }
             
