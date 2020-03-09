@@ -51,11 +51,11 @@ namespace BusinessLayer
 
 
         
-        public Faktura skapaFaktura(int bokningsNr, BusinessManager bm)
+        public Faktura skapaFaktura(int bokningsNr)
         {
             Bokning B = BoknRepo.GetBokning(bokningsNr);
 
-            int FNr = bm.FakRepo.fakturor.Count + 1;
+            int FNr = FakRepo.fakturor.Count + 1;
 
             DateTime endDate = DateTime.Today;
             double pris = 0;
@@ -70,7 +70,7 @@ namespace BusinessLayer
 
             Faktura F = new Faktura(FNr, pris, B, B.böcker, B.startDate, endDate);
 
-            bm.FakRepo.AddFaktura(F);
+            FakRepo.AddFaktura(F);
 
             BoknRepo.DeleteBokning(B.BokningsNr);
 

@@ -146,7 +146,7 @@ namespace GUI
             else
             {
                
-                Faktura F = BusinessManager.skapaFaktura(B.BokningsNr, BusinessManager);
+                Faktura F = BusinessManager.skapaFaktura(B.BokningsNr);
 
                 MessageBox.Show($"Bokningen varade mellan {F.startDate} och {F.endDate}\nPriset blir {F.Pris}Kr", "Bokningen har avbrutits");
                
