@@ -18,21 +18,29 @@ namespace BusinessLayer
 
         private BusinessManager()
         {
+
+
             //Extra data som skapas för att skapa en initciell bokning 
-            Medlem M = new Medlem(10, "Calle", 0708555789, "calle@hotmail.com", new List<Bokning>());
-            Anställd A = new Anställd(10, "Lisa", "LOL", "expedit", new List<Bokning>());
-            Bok B = new Bok(1245, "How do?");
+            //Medlem M = new Medlem(10, "Calle", 0708555789, "calle@hotmail.com", new List<Bokning>());
+            //Anställd A = new Anställd(10, "Lisa", "LOL", "expedit", new List<Bokning>());
+            //Bok B = new Bok(1245, "How do?");
+
+            //List<Bok> boken = new List<Bok>();
+            //boken.Add(B);
+            //A.skapaBokning(10, boken, 10, new BusinessManager());
 
             MedRepo = new MedlemRepository();
             AnstRepo = new AnställdRepository();
             BokRepo = new BokRepository();
-            BoknRepo = new BokningsRepository(M, A, B);
+            BoknRepo = new BokningsRepository();
             FakRepo = new FakturaRepository();
 
             //Lägger in extradatan i sina respektive listor
-            MedRepo.Medlemmar.Add(M);
-            AnstRepo.anställda.Add(A);
-            BokRepo.Böcker.Add(B);
+            //MedRepo.Medlemmar.Add(M);
+            //AnstRepo.anställda.Add(A);
+            //BokRepo.Böcker.Add(B);
+
+
 
         }
        
@@ -55,6 +63,11 @@ namespace BusinessLayer
         {
             Bokning B = BoknRepo.GetBokning(bokningsNr);
 
+            foreach(Bok b in B.böcker)
+            {
+                b.bokning = null;
+            }
+
             int FNr = FakRepo.fakturor.Count + 1;
 
             DateTime endDate = DateTime.Today;
@@ -73,6 +86,7 @@ namespace BusinessLayer
             FakRepo.AddFaktura(F);
 
             BoknRepo.DeleteBokning(B.BokningsNr);
+
 
             return F;
 

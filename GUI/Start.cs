@@ -13,12 +13,16 @@ namespace GUI
 {
     public partial class Start : Form
     {
+
         public void Uppdatera()
         {
             BokadeBöckerlista.Items.Clear();
             ListboxBöcker.Items.Clear();
+            BokningsNrBox.Clear();
+            MedlemsIdBox.Clear();
 
-            foreach(Bok b in BusinessManager.BokRepo.Böcker)
+
+            foreach (Bok b in BusinessManager.BokRepo.Böcker)
             {
                 if (b.bokning == null)
                 {
@@ -32,13 +36,28 @@ namespace GUI
 
         }
         public BusinessManager BusinessManager { get; }
+
+
+
         public Start(BusinessManager businessManager)
         {
             //Laddar in saker i listorna
             InitializeComponent();
+
+
             BusinessManager = businessManager;
-            List<Bok> Boklista = businessManager.BokRepo.GetBöcker();
-            //ListboxBöcker.DataSource = Boklista;
+
+           
+            Medlem M = new Medlem(10, "Calle", 0708555789, "calle@hotmail.com", new List<Bokning>());
+            Anställd A = new Anställd(10, "Lisa", "LOL", "expedit", new List<Bokning>());
+            Bok B = new Bok(1245, "How do?");
+
+            
+            BusinessManager.MedRepo.Medlemmar.Add(M);
+            BusinessManager.AnstRepo.anställda.Add(A);
+            BusinessManager.BokRepo.Böcker.Add(B);
+
+
             Uppdatera();
             ListboxBöcker.SelectionMode = SelectionMode.MultiExtended;
             
@@ -75,12 +94,7 @@ namespace GUI
 
             }
 
-            //for (int i = 0; i < ListboxBöcker.Items.Count; i++)
-            //{
-            //    Bok b = (Bok)ListboxBöcker.Items[i];
-            //    B.Add(b);
-
-            //}
+            
 
 
             Bokning Bokn = A.skapaBokning(MNr, B, BusinessManager.AnstRepo.inloggad, BusinessManager);
@@ -101,24 +115,7 @@ namespace GUI
                 MessageBox.Show($"{Bokn.BokningsNr}", "Ditt boknings nummer är");
                 BokadeBöckerlista.Items.Add(B);
                 Uppdatera();
-                //BokadeBöckerlista.Items.Add(B);
-
-                //ListboxBöcker.Items.Remove(ListboxBöcker.SelectedItem);
-
-                //label5.Text = "";
-                //foreach (object b in ListboxBöcker.SelectedItems)
-                //{
-                //    label5.Text += (label5.Text == "" ? "" : ",") + b.ToString();
-
-                //}
-
-
-                //foreach (object b in ListboxBöcker.SelectedItems)
-                //{
-                //    BokadeBöckerlista.Text += (label5.Text == "" ? "" : ",") + b.ToString();
-
-                //}
-
+                
             }
             
             
@@ -149,6 +146,7 @@ namespace GUI
                 Faktura F = BusinessManager.skapaFaktura(B.BokningsNr);
 
                 MessageBox.Show($"Bokningen varade mellan {F.startDate} och {F.endDate}\nPriset blir {F.Pris}Kr", "Bokningen har avbrutits");
+                Uppdatera();
                
             }
 

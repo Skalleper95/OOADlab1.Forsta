@@ -8,7 +8,7 @@ namespace BusinessLayer
 {
     public class Anställd
     {
-        public AnställdRepository AnstRepo { get; set; }
+        
         public int anstNr { get; set; }
         public string namn { get; set; }
         public string roll { get; set; }
@@ -39,14 +39,15 @@ namespace BusinessLayer
             Anställd A = bm.GetAnställd(anstNr);
             DateTime start = DateTime.Today;
             DateTime end = start.AddDays(7);
-
-            int BokningsNr = bm.BoknRepo.Bokningar.Count + 1;
+            int BokningsNr = bm.BoknRepo.Bokningar.Count+1;
+            
             Bokning B = new Bokning(M, A, BokningsNr, start, end, böcker);
             
             A.bokningar.Add(B);
             M.bokningar.Add(B);
-
-            foreach(Bok bok in B.böcker)
+            //Bokningar.Add(B);
+            
+            foreach (Bok bok in B.böcker)
             {
                 bok.bokning = B;
             }
